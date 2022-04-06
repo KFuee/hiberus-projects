@@ -88,20 +88,11 @@ namespace CalculadoraWin
             }
         }
 
-        public void button_Click(object sender, EventArgs e)
+        private void handleAction(string buttonText)
         {
-            Button button = (Button)sender;
-            string buttonText = button.Text;
-
             if (isNumber(buttonText))
             {
                 result.Text += buttonText;
-                return;
-            }
-
-            if (isSpecialOperation(buttonText))
-            {
-                handleSpecialOperation(buttonText);
                 return;
             }
 
@@ -111,6 +102,19 @@ namespace CalculadoraWin
                 operation.Text = (opResult + " " + buttonText + " ");
                 result.Text = opResult;
             }
+
+            if (isSpecialOperation(buttonText))
+            {
+                handleSpecialOperation(buttonText);
+                return;
+            }
+        }
+
+        public void button_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+
+            handleAction(button.Text);
         }
     }
 }
