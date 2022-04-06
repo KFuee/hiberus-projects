@@ -17,6 +17,17 @@ namespace CalculadoraWin
         }
 
         /// <summary>
+        /// Limpia los TextBox del formulario
+        /// </summary>
+        /// <param name="resultText">Solo utilizado cuando se divide entre 0</param>
+        private void cleanForm(string resultText)
+        {
+            operation.Text = "";
+            result.Text = resultText;
+            lastValue = null;
+        }
+
+        /// <summary>
         /// Comprueba si es una operación especial
         /// </summary>
         /// <param name="operation">Valor de buttonText</param>
@@ -73,9 +84,7 @@ namespace CalculadoraWin
                     savedValue = result.Text;
                     break;
                 case "C":
-                    this.operation.Text = "";
-                    result.Text = "";
-                    lastValue = null;
+                    cleanForm(null);
                     break;
                 case "=":
                     result.Text = calculate(this.operation.Text + result.Text);
@@ -132,9 +141,7 @@ namespace CalculadoraWin
             }
             catch (DivideByZeroException)
             {
-                operation.Text = "";
-                result.Text = "No se puede dividir entre cero";
-                lastValue = null;
+                cleanForm("No se puede dividir entre cero");
             }
         }
     }
