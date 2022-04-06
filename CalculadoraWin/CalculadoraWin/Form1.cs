@@ -9,22 +9,11 @@ namespace CalculadoraWin
     public partial class Calculadora : Form
     {
         public string savedValue;
+        public string lastValue;
 
         public Calculadora()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Comprueba si es un operador
-        /// </summary>
-        /// <param name="value">Valor de buttonText</param>
-        /// <returns>bool indicando si es un operador</returns>
-        private bool isOperator(string value)
-        {
-            string[] operators = new string[] { "*", "/", "+", "-" };
-
-            return operators.Contains(value);
         }
 
         /// <summary>
@@ -78,9 +67,10 @@ namespace CalculadoraWin
                 case "C":
                     this.operation.Text = "";
                     result.Text = "";
+                    lastValue = null;
                     break;
                 case "=":
-                    result.Text = calculate(this.operation.Text);
+                    result.Text = calculate(this.operation.Text + result.Text);
                     this.operation.Text = "";
                     break;
                 default:
@@ -88,25 +78,39 @@ namespace CalculadoraWin
             }
         }
 
+        /// <summary>
+        /// Realiza una acción en función del tipo de acción
+        /// </summary>
+        /// <param name="buttonText">Texto del botón</param>
         private void handleAction(string buttonText)
         {
             if (isNumber(buttonText))
             {
-                result.Text += buttonText;
-                return;
-            }
+                // Comprueba si se debe resetear el valor de resultado
+                if (lastValue == result.Text)
+                {
+                    result.Text = buttonText;
+                } else
+                {
+                    result.Text += buttonText;
+                }
 
-            if (isOperator(buttonText))
-            {
-                var opResult = calculate(operation.Text + result.Text);
-                operation.Text = (opResult + " " + buttonText + " ");
-                result.Text = opResult;
+                return;
             }
 
             if (isSpecialOperation(buttonText))
             {
                 handleSpecialOperation(buttonText);
                 return;
+            }
+
+            // Se ejecuta si la acción es un operador
+            if (lastValue != result.Text)
+            {
+                var opResult = calculate(operation.Text + result.Text);
+                operation.Text = (opResult + " " + buttonText + " ");
+                result.Text = opResult;
+                lastValue = result.Text;
             }
         }
 

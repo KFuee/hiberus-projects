@@ -45,12 +45,13 @@
             this.button0 = new System.Windows.Forms.Button();
             this.buttonPlusMinus = new System.Windows.Forms.Button();
             this.buttonDecimal = new System.Windows.Forms.Button();
-            this.buttonMult = new System.Windows.Forms.Button();
             this.buttonMinus = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.buttonEqual = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.result = new System.Windows.Forms.TextBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.buttonMult = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // operation
@@ -58,9 +59,9 @@
             this.operation.BackColor = System.Drawing.SystemColors.Control;
             this.operation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.operation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.operation.Location = new System.Drawing.Point(218, 31);
+            this.operation.Location = new System.Drawing.Point(56, 31);
             this.operation.Name = "operation";
-            this.operation.Size = new System.Drawing.Size(151, 19);
+            this.operation.Size = new System.Drawing.Size(313, 19);
             this.operation.TabIndex = 0;
             this.operation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -76,7 +77,7 @@
             // 
             // buttonC
             // 
-            this.buttonC.Location = new System.Drawing.Point(294, 97);
+            this.buttonC.Location = new System.Drawing.Point(218, 97);
             this.buttonC.Name = "buttonC";
             this.buttonC.Size = new System.Drawing.Size(75, 23);
             this.buttonC.TabIndex = 2;
@@ -227,17 +228,6 @@
             this.buttonDecimal.UseVisualStyleBackColor = true;
             this.buttonDecimal.Click += new System.EventHandler(this.button_Click);
             // 
-            // buttonMult
-            // 
-            this.buttonMult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMult.Location = new System.Drawing.Point(324, 155);
-            this.buttonMult.Name = "buttonMult";
-            this.buttonMult.Size = new System.Drawing.Size(45, 30);
-            this.buttonMult.TabIndex = 16;
-            this.buttonMult.Text = "*";
-            this.buttonMult.UseVisualStyleBackColor = true;
-            this.buttonMult.Click += new System.EventHandler(this.button_Click);
-            // 
             // buttonMinus
             // 
             this.buttonMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -281,22 +271,44 @@
             this.result.BackColor = System.Drawing.SystemColors.Control;
             this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.result.Location = new System.Drawing.Point(218, 56);
+            this.result.Location = new System.Drawing.Point(56, 56);
             this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(151, 22);
+            this.result.Size = new System.Drawing.Size(313, 22);
             this.result.TabIndex = 21;
             this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(324, 155);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(45, 30);
+            this.button10.TabIndex = 22;
+            this.button10.Text = "/";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button_Click);
+            // 
+            // buttonMult
+            // 
+            this.buttonMult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMult.Location = new System.Drawing.Point(324, 119);
+            this.buttonMult.Name = "buttonMult";
+            this.buttonMult.Size = new System.Drawing.Size(45, 30);
+            this.buttonMult.TabIndex = 23;
+            this.buttonMult.Text = "*";
+            this.buttonMult.UseVisualStyleBackColor = true;
             // 
             // Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 324);
+            this.Controls.Add(this.buttonMult);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.result);
             this.Controls.Add(this.buttonEqual);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.buttonMinus);
-            this.Controls.Add(this.buttonMult);
             this.Controls.Add(this.buttonDecimal);
             this.Controls.Add(this.buttonPlusMinus);
             this.Controls.Add(this.button0);
@@ -314,7 +326,6 @@
             this.Controls.Add(this.buttonM);
             this.Controls.Add(this.operation);
             this.Name = "Calculadora";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -339,12 +350,13 @@
         private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button buttonPlusMinus;
         private System.Windows.Forms.Button buttonDecimal;
-        private System.Windows.Forms.Button buttonMult;
         private System.Windows.Forms.Button buttonMinus;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonEqual;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox result;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonMult;
     }
 }
 
