@@ -297,6 +297,7 @@
             this.buttonMult.TabIndex = 23;
             this.buttonMult.Text = "*";
             this.buttonMult.UseVisualStyleBackColor = true;
+            this.buttonMult.Click += new System.EventHandler(this.button_Click);
             // 
             // Calculadora
             // 
