@@ -47,7 +47,15 @@ namespace CalculadoraWin
         {
             DataTable dt = new DataTable();
 
-            return Convert.ToString(dt.Compute(operation, null));
+            string result = Convert.ToString(dt.Compute(operation, null));
+
+            /* Al dividir entre 0 con Compute no suelta una excepción
+             * y da como resultado "∞", ya que es el límite de los resultados.
+             * Por eso lanzamos la excepción DivideByZero
+             **/
+            if (result == "∞") throw new DivideByZeroException();
+
+            return result;
         }
 
         /// <summary>
@@ -118,7 +126,16 @@ namespace CalculadoraWin
         {
             Button button = (Button)sender;
 
-            handleAction(button.Text);
+            try
+            {
+                handleAction(button.Text);
+            }
+            catch (DivideByZeroException)
+            {
+                operation.Text = "";
+                result.Text = "No se puede dividir entre cero";
+                lastValue = null;
+            }
         }
     }
 }
