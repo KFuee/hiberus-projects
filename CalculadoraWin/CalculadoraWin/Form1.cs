@@ -34,7 +34,7 @@ namespace CalculadoraWin
         /// <returns>bool indicando si es una operación especial</returns>
         private bool isSpecialOperation(string value)
         {
-            string[] specialOperations = new string[] { "MR", "M", "C", "±", "=" };
+            string[] specialOperations = new string[] { "MR", "M", "C", "±", ".", "=" };
 
             return specialOperations.Contains(value);
         }
@@ -87,10 +87,18 @@ namespace CalculadoraWin
                     cleanForm(null);
                     break;
                 case "±":
+                    if (result.Text == "") return;
+
                     var parsedString = double.Parse(result.Text);
                     result.Text = parsedString > 0 ? ("-" + result.Text) :
                         Math.Abs(parsedString).ToString();
 
+                    break;
+                case ".":
+                    // Comprueba si ya hay un punto/número
+                    if (result.Text.Contains(".") || 
+                        result.Text.Length == 0) return;
+                    result.Text += ".";
                     break;
                 case "=":
                     result.Text = calculate(this.operation.Text + result.Text);
