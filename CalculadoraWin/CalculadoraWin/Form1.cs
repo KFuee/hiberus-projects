@@ -30,11 +30,11 @@ namespace CalculadoraWin
         /// <summary>
         /// Comprueba si es una operación especial
         /// </summary>
-        /// <param name="operation">Valor de buttonText</param>
+        /// <param name="value">Valor de buttonText</param>
         /// <returns>bool indicando si es una operación especial</returns>
         private bool isSpecialOperation(string value)
         {
-            string[] specialOperations = new string[] { "MR", "M", "C", "=" };
+            string[] specialOperations = new string[] { "MR", "M", "C", "±", "=" };
 
             return specialOperations.Contains(value);
         }
@@ -131,7 +131,7 @@ namespace CalculadoraWin
             }
         }
 
-        public void button_Click(object sender, EventArgs e)
+        public void buttonClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
 
