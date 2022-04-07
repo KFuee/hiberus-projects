@@ -1,6 +1,6 @@
-﻿namespace CalculadoraWin
+﻿namespace CalculatorWin
 {
-    partial class Calculadora
+    partial class Calculator
     {
         /// <summary>
         /// Variable del diseñador necesaria.

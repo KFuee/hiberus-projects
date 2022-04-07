@@ -4,14 +4,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace CalculadoraWin
+namespace CalculatorWin
 {
-    public partial class Calculadora : Form
+    public partial class Calculator : Form
     {
         public string savedValue;
         public string lastValue;
 
-        public Calculadora()
+        public Calculator()
         {
             InitializeComponent();
         }
