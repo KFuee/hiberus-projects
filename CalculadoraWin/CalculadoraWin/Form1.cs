@@ -86,6 +86,12 @@ namespace CalculadoraWin
                 case "C":
                     cleanForm(null);
                     break;
+                case "±":
+                    var parsedString = double.Parse(result.Text);
+                    result.Text = parsedString > 0 ? ("-" + result.Text) :
+                        Math.Abs(parsedString).ToString();
+
+                    break;
                 case "=":
                     result.Text = calculate(this.operation.Text + result.Text);
                     this.operation.Text = "";
