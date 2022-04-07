@@ -299,7 +299,7 @@
             this.buttonMult.UseVisualStyleBackColor = true;
             this.buttonMult.Click += new System.EventHandler(this.buttonClick);
             // 
-            // Calculadora
+            // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -326,7 +326,7 @@
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonM);
             this.Controls.Add(this.operation);
-            this.Name = "Calculadora";
+            this.Name = "Calculator";
             this.Text = "Calculadora";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -334,8 +334,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox operation;
         private System.Windows.Forms.Button buttonM;
         private System.Windows.Forms.Button buttonC;
         private System.Windows.Forms.Button buttonMr;
@@ -355,9 +353,10 @@
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonEqual;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox result;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button buttonMult;
+        public System.Windows.Forms.TextBox operation;
+        public System.Windows.Forms.TextBox result;
     }
 }
 
