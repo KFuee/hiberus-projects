@@ -27,7 +27,7 @@ namespace CalculatorWin
             lastValue = null;
         }
 
-        public void buttonClick(object sender, EventArgs e)
+        protected void buttonClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
 
