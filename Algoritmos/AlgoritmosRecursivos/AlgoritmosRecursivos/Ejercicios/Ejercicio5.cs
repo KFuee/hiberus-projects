@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgoritmosRecursivos.Ejercicios
 {
@@ -13,7 +9,7 @@ namespace AlgoritmosRecursivos.Ejercicios
             // Pide los datos por consola
             int numeroUsuario = Utils.pedirNumero();
 
-            // Calcula la división con los datos introducidos
+            // Calcula la suma con los datos introducidos
             int resultadoSumaDigitos = calcularSumaDigitos(numeroUsuario, 0);
             Console.WriteLine("Resultado: " + resultadoSumaDigitos);
         }

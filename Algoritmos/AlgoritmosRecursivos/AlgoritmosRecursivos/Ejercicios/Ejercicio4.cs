@@ -9,7 +9,7 @@ namespace AlgoritmosRecursivos.Ejercicios
             // Pide los datos por consola
             int numeroUsuario = Utils.pedirNumero();
 
-            // Calcula el factorial con los datos introducidos
+            // Invierte el número introducido
             int resultadoInversion = invertirNumero(numeroUsuario, 0);
             Console.WriteLine("Resultado: " + resultadoInversion);
         }
