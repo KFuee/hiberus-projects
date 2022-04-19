@@ -58,7 +58,7 @@ namespace CalculatorWeb
         }
 
         /// <summary>
-        /// Realiza una acción en función del tipo de acción
+        /// Realiza una acción en función del botón pulsado
         /// </summary>
         /// <param name="buttonText">Texto del botón</param>
         public void handleAction(string buttonText)
