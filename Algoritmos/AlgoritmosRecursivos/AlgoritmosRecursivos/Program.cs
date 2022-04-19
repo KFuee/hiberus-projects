@@ -1,61 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgoritmosRecursivos
 {
     class Program
     {
-        private static int calcularFactorial(int n)
+        static Dictionary<int, Action> ejercicios = new Dictionary<int, Action>
         {
-            if (n != 1)
-            {
-                return n * calcularFactorial(n - 1);
-            }
-
-            return 1;
-        }
-
-        private static int calcularPotencia(int n, int potencia)
-        {
-            if (potencia != 0)
-            {
-                return n * calcularPotencia(n, potencia - 1);
-            }
-
-            return 1;
-        }
-
-        private static int calcularDivisionRestasSucesivas(int dividendo, int divisor) {
-            if (divisor > dividendo)
-            {
-                return 0;
-            }
-
-            return 1 + calcularDivisionRestasSucesivas(dividendo - divisor, divisor);
-        }
-
-        private static int invertirNumero(int n) {
-            return 1;
-        }
+            { 1, () => Ejercicios.Ejercicio1.ejecutar() },
+            { 2, () => Ejercicios.Ejercicio2.ejecutar() },
+            { 3, () => Ejercicios.Ejercicio3.ejecutar() }
+        };
 
         static void Main(string[] args)
         {
-            //int resultadoFactorial = calcularFactorial(5);
-            //Console.WriteLine("Resultado: " + resultadoFactorial);
+            foreach (int i in ejercicios.Keys)
+            {
+                Console.WriteLine(string.Format("{0}. Ejercicio {0}", i));
+            }
 
-            //int resultadoPotencia = calcularPotencia(2, 4);
-            //Console.WriteLine("Resultado: " + resultadoPotencia);
+            int numeroEjercicio = Utils.pedirNumero();
 
-            //int resultadoDivisionRestasSucesivas = calcularDivisionRestasSucesivas(35, 8);
-            //Console.WriteLine("Resultado: " + resultadoDivisionRestasSucesivas);
+            // Limpia la consola antes de ejecutar el ejercicio
+            Console.Clear();
 
-            int resultadoInvertirNumero = invertirNumero(1356);
-            Console.WriteLine("Resultado: " + resultadoInvertirNumero);
-
-            Console.ReadLine();
+            ejercicios[numeroEjercicio]();
         }
     }
 }
