@@ -10,7 +10,7 @@ namespace AlgoritmosRecursivos.Ejercicios
             int primerNumero = Utils.pedirNumero("Introduce el primer número: ");
             int segundoNumero = Utils.pedirNumero("Introduce el segundo número: ");
 
-            // Calcula la suma de los elementos del vector introducido
+            // Calcula el máximo comun divisor de dos números
             int resultadoMaximoComunDivisor = maximoComunDivisor(
                 primerNumero, segundoNumero);
             Console.WriteLine("Resultado: " + resultadoMaximoComunDivisor);

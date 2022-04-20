@@ -18,7 +18,7 @@ namespace AlgoritmosRecursivos.Ejercicios
                 vectorNumeros[i] = nuevoNumero;
             }
 
-            // Calcula la suma de los elementos del vector introducido
+            // Calcula la multiplicación de los elementos del vector introducido
             int resultadoMultiplicacionVector = multiplicacionElementosVector(
                 vectorNumeros, numeroDeDatos - 1);
             Console.WriteLine("Resultado: " + resultadoMultiplicacionVector);

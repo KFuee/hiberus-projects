@@ -9,7 +9,7 @@ namespace AlgoritmosRecursivos.Ejercicios
             // Pide los datos por consola
             int numeroUsuario = Utils.pedirNumero();
 
-            // Calcula la suma con los datos introducidos
+            // Calcula la suma de los dígitos del número introducido
             int resultadoSumaDigitos = calcularSumaDigitos(numeroUsuario, 0);
             Console.WriteLine("Resultado: " + resultadoSumaDigitos);
         }

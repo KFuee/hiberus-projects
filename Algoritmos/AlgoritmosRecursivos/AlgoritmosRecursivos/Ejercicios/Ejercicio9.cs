@@ -18,7 +18,7 @@ namespace AlgoritmosRecursivos.Ejercicios
                 vectorNumeros[i] = nuevoNumero;
             }
 
-            // Calcula la suma de los elementos del vector introducido
+            // Obtiene el número menor de los elementos del vector introducido
             int resultadoNumeroMenor = numeroMenorVector(vectorNumeros, numeroDeDatos - 1);
             Console.WriteLine("Resultado: " + resultadoNumeroMenor);
         }
