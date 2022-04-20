@@ -2,7 +2,7 @@
 
 namespace AlgoritmosRecursivos.Ejercicios
 {
-    class Ejercicio7
+    class Ejercicio9
     {
         public static void ejecutar()
         {
@@ -19,19 +19,19 @@ namespace AlgoritmosRecursivos.Ejercicios
             }
 
             // Calcula la suma de los elementos del vector introducido
-            int resultadoMultiplicacionVector = multiplicacionElementosVector(
-                vectorNumeros, numeroDeDatos - 1);
-            Console.WriteLine("Resultado: " + resultadoMultiplicacionVector);
+            int resultadoNumeroMenor = numeroMenorVector(vectorNumeros, numeroDeDatos - 1);
+            Console.WriteLine("Resultado: " + resultadoNumeroMenor);
         }
 
-        private static int multiplicacionElementosVector(int[] vector, int n)
+        private static int numeroMenorVector(int[] vector, int length)
         {
-            if (n < 0)
+            if (length == 1)
             {
-                return 1;
+                return vector[0] > vector[1] ? vector[1] : vector[0];
             }
 
-            return vector[n] * multiplicacionElementosVector(vector, n - 1);
+            return vector[length] < numeroMenorVector(vector, length - 1) ?
+                vector[length] : numeroMenorVector(vector, length - 1);
         }
     }
 }

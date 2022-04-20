@@ -14,7 +14,8 @@ namespace AlgoritmosRecursivos
             { 5, () => Ejercicios.Ejercicio5.ejecutar() },
             { 6, () => Ejercicios.Ejercicio6.ejecutar() },
             { 7, () => Ejercicios.Ejercicio7.ejecutar() },
-            { 8, () => Ejercicios.Ejercicio8.ejecutar() }
+            { 8, () => Ejercicios.Ejercicio8.ejecutar() },
+            { 9, () => Ejercicios.Ejercicio9.ejecutar() }
         };
 
         static void Main(string[] args)

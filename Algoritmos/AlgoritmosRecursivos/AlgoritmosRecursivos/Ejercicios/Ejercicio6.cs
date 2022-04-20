@@ -20,7 +20,7 @@ namespace AlgoritmosRecursivos.Ejercicios
 
             // Calcula la suma de los elementos del vector introducido
             int resultadoSumaVector = sumarElementosVector(
-                vectorNumeros, vectorNumeros.Length - 1);
+                vectorNumeros, numeroDeDatos - 1);
             Console.WriteLine("Resultado: " + resultadoSumaVector);
         }
 
