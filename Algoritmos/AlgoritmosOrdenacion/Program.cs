@@ -10,13 +10,6 @@ namespace AlgoritmosOrdenacion
             { 1, new Metodos.BubbleSort() },
         };
 
-        static int pedirNumero(string mensaje = "")
-        {
-            Console.Write(mensaje.Length > 0 ? mensaje : "Introduce un número: ");
-
-            return int.Parse(Console.ReadLine());
-        }
-
         static void Main(string[] args)
         {
             foreach (KeyValuePair<int, Metodo> metodo in metodos)
@@ -25,15 +18,16 @@ namespace AlgoritmosOrdenacion
             }
 
             // Pregunta al usuario la acción que desea ejecutar
-            int metodoUsuario = pedirNumero("Selecciona la acción a ejecutar: ");
+            int metodoUsuario = Utils.pedirNumero("Selecciona la acción a ejecutar: ");
 
-            int sizeVector = pedirNumero("Introduce el tamaño del vector: ");
+            int sizeVector = Utils.pedirNumero("Introduce el tamaño del vector: ");
             int[] vectorUsuario = new int[sizeVector];
 
             // Pregunta al usuario por los números que quiere introducir en el vector
             for (int i = 0; i < sizeVector; i++)
             {
-                vectorUsuario[i] = pedirNumero(string.Format("Introduce el número de la posición {0}: ", i));
+                vectorUsuario[i] = Utils.pedirNumero(
+                    string.Format("Introduce el número de la posición {0}: ", i));
             }
 
             // Limpia la consola

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AlgoritmosOrdenacion.Metodos
+﻿namespace AlgoritmosOrdenacion.Metodos
 {
     class BubbleSort : Metodo
     {
@@ -10,16 +8,31 @@ namespace AlgoritmosOrdenacion.Metodos
 
         public void ejecutar(int[] vector)
         {
-            string[] resultado = algoritmo(vector);
+            int[] resultado = algoritmo(vector);
 
-            Console.WriteLine("El resultado del Bubble Sort es:");
-            Console.WriteLine(resultado);
+            // Imprime el resultado en consola
+            Utils.imprimirResultado(nombre, resultado);
         }
 
-        public string[] algoritmo(int[] vector)
+        public int[] algoritmo(int[] vector)
         {
-            string[] prueba = new string[0];
-            return prueba;
+            int[] vectorOrdenado = vector;
+
+            int temporal;
+            for (int escribir = 0; escribir < vector.Length; escribir++)
+            {
+                for (int ordenar = 0; ordenar < vector.Length - 1; ordenar++)
+                {
+                    if (vector[ordenar] > vector[ordenar + 1])
+                    {
+                        temporal = vector[ordenar + 1];
+                        vector[ordenar + 1] = vector[ordenar];
+                        vector[ordenar] = temporal;
+                    }
+                }
+            }
+
+            return vectorOrdenado;
         }
     }
 }

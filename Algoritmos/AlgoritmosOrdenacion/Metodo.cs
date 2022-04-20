@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AlgoritmosOrdenacion
+﻿namespace AlgoritmosOrdenacion
 {
     public interface Metodo
     {
@@ -14,6 +8,6 @@ namespace AlgoritmosOrdenacion
 
         void ejecutar(int[] vector);
 
-        string[] algoritmo(int[] vector);
+        int[] algoritmo(int[] vector);
     }
 }
