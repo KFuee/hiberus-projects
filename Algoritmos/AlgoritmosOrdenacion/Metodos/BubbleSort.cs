@@ -16,8 +16,6 @@
 
         public int[] algoritmo(int[] vector)
         {
-            int[] vectorOrdenado = vector;
-
             int temporal;
             for (int escribir = 0; escribir < vector.Length; escribir++)
             {
@@ -32,7 +30,7 @@
                 }
             }
 
-            return vectorOrdenado;
+            return vector;
         }
     }
 }

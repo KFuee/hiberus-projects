@@ -17,26 +17,24 @@
 
         public int[] algoritmo(int[] vector)
         {
-            int[] vectorOrdenado = vector;
-
             int temp, menor;
-            for (int i = 0; i < vectorOrdenado.Length - 1; i++)
+            for (int i = 0; i < vector.Length - 1; i++)
             {
                 menor = i;
-                for (int j = i + 1; j < vectorOrdenado.Length; j++)
+                for (int j = i + 1; j < vector.Length; j++)
                 {
-                    if (vectorOrdenado[j] < vectorOrdenado[menor])
+                    if (vector[j] < vector[menor])
                     {
                         menor = j;
                     }
                 }
 
-                temp = vectorOrdenado[menor];
-                vectorOrdenado[menor] = vectorOrdenado[i];
-                vectorOrdenado[i] = temp;
+                temp = vector[menor];
+                vector[menor] = vector[i];
+                vector[i] = temp;
             }
 
-            return vectorOrdenado;
+            return vector;
         }
     }
 }

@@ -46,26 +46,24 @@
 
         private int[] quickSort(int[] vector, int izq, int dcha)
         {
-            int[] vectorOrdenado = vector;
-
             int pivote;
 
             if (izq < dcha)
             {
-                pivote = partir(vectorOrdenado, izq, dcha);
+                pivote = partir(vector, izq, dcha);
 
                 if (pivote > 1)
                 {
-                    quickSort(vectorOrdenado, izq, dcha - 1);
+                    quickSort(vector, izq, dcha - 1);
                 }
 
                 if (pivote + 1 < dcha)
                 {
-                    quickSort(vectorOrdenado, pivote + 1, dcha);
+                    quickSort(vector, pivote + 1, dcha);
                 }
             }
 
-            return vectorOrdenado;
+            return vector;
         }
 
         public int[] algoritmo(int[] vector)
