@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Algoritmos\AlgoritmosOrdenacionLib\AlgoritmosOrdenacionLib.csproj">
+    <ProjectReference Include="..\AlgoritmosOrdenacionLib\AlgoritmosOrdenacionLib.csproj">
       <Project>{e9ff7870-efa1-45c7-b9ff-0e0e6bac8676}</Project>
       <Name>AlgoritmosOrdenacionLib</Name>
     </ProjectReference>
