@@ -1,4 +1,4 @@
-﻿namespace AlgoritmosOrdenacion
+﻿namespace AlgoritmosOrdenacionLib
 {
     public interface Metodo
     {

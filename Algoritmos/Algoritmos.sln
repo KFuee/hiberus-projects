@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.1831
+VisualStudioVersion = 15.0.28307.1913
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmosRecursivos", "AlgoritmosRecursivos\AlgoritmosRecursivos\AlgoritmosRecursivos.csproj", "{57D2B679-2136-4D55-AE21-1ACC0D8243EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmosOrdenacion", "AlgoritmosOrdenacion\AlgoritmosOrdenacion.csproj", "{772BBE66-9231-4341-BABF-FEE9F9B768B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmosOrdenacionMenu", "AlgoritmosOrdenacionMenu\AlgoritmosOrdenacionMenu.csproj", "{772BBE66-9231-4341-BABF-FEE9F9B768B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmosOrdenacionLib", "AlgoritmosOrdenacionLib\AlgoritmosOrdenacionLib.csproj", "{E9FF7870-EFA1-45C7-B9FF-0E0E6BAC8676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,11 +23,15 @@ Global
 		{772BBE66-9231-4341-BABF-FEE9F9B768B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{772BBE66-9231-4341-BABF-FEE9F9B768B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{772BBE66-9231-4341-BABF-FEE9F9B768B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9FF7870-EFA1-45C7-B9FF-0E0E6BAC8676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9FF7870-EFA1-45C7-B9FF-0E0E6BAC8676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9FF7870-EFA1-45C7-B9FF-0E0E6BAC8676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9FF7870-EFA1-45C7-B9FF-0E0E6BAC8676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2A59AEB3-FDF2-4A4C-B1ED-4D6877650E65}
+		SolutionGuid = {11CEA798-86EC-4EA8-AB1C-6CA573989916}
 	EndGlobalSection
 EndGlobal

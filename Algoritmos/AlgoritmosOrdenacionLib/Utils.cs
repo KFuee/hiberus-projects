@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace AlgoritmosOrdenacion
+namespace AlgoritmosOrdenacionLib
 {
-    class Utils
+    public class Utils
     {
         public static int pedirNumero(string mensaje = "")
         {

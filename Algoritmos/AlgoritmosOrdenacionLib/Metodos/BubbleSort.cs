@@ -1,6 +1,6 @@
-﻿namespace AlgoritmosOrdenacion.Metodos
+﻿namespace AlgoritmosOrdenacionLib.Metodos
 {
-    class BubbleSort : Metodo
+    public class BubbleSort : Metodo
     {
         public string nombre {
             get => "Bubble Sort";

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{772BBE66-9231-4341-BABF-FEE9F9B768B4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AlgoritmosOrdenacion</RootNamespace>
-    <AssemblyName>AlgoritmosOrdenacion</AssemblyName>
+    <RootNamespace>AlgoritmosOrdenacionMenu</RootNamespace>
+    <AssemblyName>AlgoritmosOrdenacionMenu</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,18 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Metodo.cs" />
-    <Compile Include="Metodos\BubbleSort.cs" />
-    <Compile Include="Metodos\InsertionSort.cs" />
-    <Compile Include="Metodos\QuickSort.cs" />
-    <Compile Include="Metodos\SelectionSort.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Algoritmos\AlgoritmosOrdenacionLib\AlgoritmosOrdenacionLib.csproj">
+      <Project>{e9ff7870-efa1-45c7-b9ff-0e0e6bac8676}</Project>
+      <Name>AlgoritmosOrdenacionLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

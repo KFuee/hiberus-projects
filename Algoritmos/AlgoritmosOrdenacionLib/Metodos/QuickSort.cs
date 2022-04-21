@@ -1,6 +1,6 @@
-﻿namespace AlgoritmosOrdenacion.Metodos
+﻿namespace AlgoritmosOrdenacionLib.Metodos
 {
-    class QuickSort : Metodo
+    public class QuickSort : Metodo
     {
         public string nombre
         {

@@ -1,10 +1,10 @@
-﻿namespace AlgoritmosOrdenacion.Metodos
+﻿namespace AlgoritmosOrdenacionLib.Metodos
 {
-    class SelectionSort : Metodo
+    public class InsertionSort : Metodo
     {
         public string nombre
         {
-            get => "Selection Sort";
+            get => "Insertion Sort";
         }
 
         public void ejecutar(int[] vector)
@@ -17,21 +17,17 @@
 
         public int[] algoritmo(int[] vector)
         {
-            int temp, menor;
             for (int i = 0; i < vector.Length - 1; i++)
             {
-                menor = i;
-                for (int j = i + 1; j < vector.Length; j++)
+                for (int j = i + 1; j > 0; j--)
                 {
-                    if (vector[j] < vector[menor])
+                    if (vector[j - 1] > vector[j])
                     {
-                        menor = j;
+                        int temp = vector[j - 1];
+                        vector[j - 1] = vector[j];
+                        vector[j] = temp;
                     }
                 }
-
-                temp = vector[menor];
-                vector[menor] = vector[i];
-                vector[i] = temp;
             }
 
             return vector;
