@@ -9,7 +9,8 @@ namespace AlgoritmosOrdenacion
         {
             { 1, new Metodos.BubbleSort() },
             { 2, new Metodos.QuickSort() },
-            { 3, new Metodos.SelectionSort() }
+            { 3, new Metodos.SelectionSort() },
+            { 4, new Metodos.InsertionSort() }
         };
 
         static void Main(string[] args)

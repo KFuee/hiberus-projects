@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Metodo.cs" />
     <Compile Include="Metodos\BubbleSort.cs" />
+    <Compile Include="Metodos\InsertionSort.cs" />
     <Compile Include="Metodos\QuickSort.cs" />
     <Compile Include="Metodos\SelectionSort.cs" />
     <Compile Include="Program.cs" />
