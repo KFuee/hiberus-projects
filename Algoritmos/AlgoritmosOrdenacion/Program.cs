@@ -8,7 +8,8 @@ namespace AlgoritmosOrdenacion
         static Dictionary<int, Metodo> metodos = new Dictionary<int, Metodo>
         {
             { 1, new Metodos.BubbleSort() },
-            { 2, new Metodos.QuickSort() }
+            { 2, new Metodos.QuickSort() },
+            { 3, new Metodos.SelectionSort() }
         };
 
         static void Main(string[] args)

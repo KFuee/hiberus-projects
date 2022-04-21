@@ -46,8 +46,9 @@
 
         private int[] quickSort(int[] vector, int izq, int dcha)
         {
-            int pivote;
             int[] vectorOrdenado = vector;
+
+            int pivote;
 
             if (izq < dcha)
             {
