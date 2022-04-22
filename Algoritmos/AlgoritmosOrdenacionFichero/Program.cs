@@ -82,6 +82,7 @@ namespace AlgoritmosOrdenacionFichero
             //Ejecuta los métodos de ordenación
             long[] tiemposEjecucionBubbleSort = obtenerTiemposDeEjecucion(new BubbleSort(), numeros);
             long[] tiemposEjecucionQuickSort = obtenerTiemposDeEjecucion(new QuickSort(), numeros);
+            long[] tiemposEjecucionSelectionSort = obtenerTiemposDeEjecucion(new SelectionSort(), numeros);
 
             //Imprime los tiempos de ejecución
             Console.WriteLine(
@@ -93,6 +94,7 @@ namespace AlgoritmosOrdenacionFichero
             Console.WriteLine();
             imprimirResultado("BubbleSort", tiemposEjecucionBubbleSort);
             imprimirResultado("QuickSort", tiemposEjecucionQuickSort);
+            imprimirResultado("SelectionSort", tiemposEjecucionSelectionSort);
         }
     }
 }
