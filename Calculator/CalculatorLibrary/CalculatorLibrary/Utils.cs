@@ -35,9 +35,11 @@ namespace CalculatorLibrary
         /// <returns>Devuelve String con el resultado</returns>
         public static string calculate(string operation)
         {
+            string opReplace = operation.Replace(",", ".");
+
             DataTable dt = new DataTable();
 
-            string result = Convert.ToString(dt.Compute(operation, null));
+            string result = Convert.ToString(dt.Compute(opReplace, null));
 
             /* Al dividir entre 0 con Compute no suelta una excepción
              * y da como resultado "∞", ya que es el límite de los resultados.
