@@ -15,52 +15,45 @@
             Utils.imprimirResultado(nombre, resultado);
         }
 
-        static private int partir(int[] vector, int izq, int dcha)
+        private static int[] quickSort(int[] vector, int izq, int dcha)
         {
-            int pivote;
-            pivote = vector[izq];
+            int pivote = vector[izq];
+            int i = izq;
+            int j = dcha;
 
-            while (true)
+            int aux;
+
+            while (i < j)
             {
-                while (vector[izq] < pivote)
+                while (vector[i] <= pivote && i < j)
                 {
-                    izq++;
+                    i++;
                 }
 
-                while (vector[dcha] > pivote)
+                while (vector[j] > pivote)
                 {
-                    dcha--;
+                    j--;
                 }
 
-                if (izq < dcha)
+                if (i < j)
                 {
-                    int temp = vector[dcha];
-                    vector[dcha] = vector[izq];
-                    vector[izq] = temp;
-                } else
-                {
-                    return dcha;
+                    aux = vector[i];
+                    vector[i] = vector[j];
+                    vector[j] = aux;
                 }
             }
-        }
 
-        private int[] quickSort(int[] vector, int izq, int dcha)
-        {
-            int pivote;
+            vector[izq] = vector[j];
+            vector[j] = pivote;
 
-            if (izq < dcha)
+            if (izq < j - 1)
             {
-                pivote = partir(vector, izq, dcha);
+                quickSort(vector, izq, j - 1);
+            }
 
-                if (pivote > 1)
-                {
-                    quickSort(vector, izq, dcha - 1);
-                }
-
-                if (pivote + 1 < dcha)
-                {
-                    quickSort(vector, pivote + 1, dcha);
-                }
+            if (j + 1 < dcha)
+            {
+                quickSort(vector, j + 1, dcha);
             }
 
             return vector;
