@@ -2,6 +2,7 @@
 using System.IO;
 using System.Diagnostics;
 using System.Linq;
+using System.Collections.Generic;
 
 // using métodos de ordenación
 using AlgoritmosOrdenacionLib;
@@ -12,6 +13,8 @@ namespace AlgoritmosOrdenacionFichero
     class Program
     {
         static Stopwatch timer = new Stopwatch();
+
+        static Dictionary<Metodo, long> mediasEjecucion = new Dictionary<Metodo, long> ();
 
         private static int[] leerNumerosDeFichero()
         {
@@ -33,9 +36,9 @@ namespace AlgoritmosOrdenacionFichero
             return numerosParsed;
         }
 
-        static void imprimirResultado(string tipo, long[] tiempos)
+        static void imprimirResultado(int pos, Metodo tipo, long[] tiempos)
         {
-            Console.Write(string.Format("Números ordenados con {0} en: ", tipo));
+            Console.Write(string.Format("Números ordenados con {0} en: ", tipo.nombre));
             foreach (var ms in tiempos)
             {
                 Console.Write(ms + "ms ");
@@ -44,7 +47,9 @@ namespace AlgoritmosOrdenacionFichero
             // Espacio en blanco
             Console.WriteLine();
 
-            Console.WriteLine("Media de las 10 iteraciones con {0}: {1}ms", tipo, tiempos.Sum() / 10);
+            long media = tiempos.Sum() / 10;
+            mediasEjecucion.Add(tipo, media);
+            Console.WriteLine("Media de las 10 iteraciones con {0}: {1}ms", tipo.nombre, media);
 
             // Espacio en blanco
             Console.WriteLine();
@@ -73,30 +78,63 @@ namespace AlgoritmosOrdenacionFichero
             return tiemposEjecucion;
         }
 
+        private static void guardarEnArchivo(int[] numeros)
+        {
+            // Obtiene el método que ha tardado menos en ordenar
+            long numeroMenor = mediasEjecucion.Values.Min();
+            KeyValuePair<Metodo, long> menor = mediasEjecucion.First(metodo => metodo.Value == numeroMenor);
+
+            // Realiza la ordenación
+            int[] ordenacion = menor.Key.algoritmo(numeros);
+
+            // Escribe en el fichero
+            string txtSalida = "numbersOutput.txt";
+            StreamWriter escribir = new StreamWriter(txtSalida);
+
+            foreach (int numero in ordenacion)
+            {
+                escribir.Write(numero + " ");
+            }
+
+            // Cierra el StreamWriter
+            escribir.Close();
+       
+            Console.WriteLine(
+                string.Format("Escrito el resultado con el método {0} en numbersOutput.txt", menor.Key.nombre));
+        }
+
         // TODO: Al finalizar las iteracione obtener el que ha tardado menos y utilizarlo para escribir en el txt
         static void Main(string[] args)
         {
             // Lee los números del fichero numbers.txt
             int[] numeros = leerNumerosDeFichero();
 
-            //Ejecuta los métodos de ordenación
-            long[] tiemposEjecucionBubbleSort = obtenerTiemposDeEjecucion(new BubbleSort(), numeros);
-            long[] tiemposEjecucionQuickSort = obtenerTiemposDeEjecucion(new QuickSort(), numeros);
-            long[] tiemposEjecucionSelectionSort = obtenerTiemposDeEjecucion(new SelectionSort(), numeros);
-            long[] tiemposEjecucionInsertionSort = obtenerTiemposDeEjecucion(new InsertionSort(), numeros);
+            // Instanciar métodos de ordenación
+            BubbleSort bSort = new BubbleSort();
+            QuickSort qSort = new QuickSort();
+            SelectionSort sSort = new SelectionSort();
+            InsertionSort iSort = new InsertionSort();
 
-            //Imprime los tiempos de ejecución
+            // Ejecuta los métodos de ordenación
+            long[] tiemposEjecucionBubbleSort = obtenerTiemposDeEjecucion(bSort, numeros);
+            long[] tiemposEjecucionQuickSort = obtenerTiemposDeEjecucion(qSort, numeros);
+            long[] tiemposEjecucionSelectionSort = obtenerTiemposDeEjecucion(sSort, numeros);
+            long[] tiemposEjecucionInsertionSort = obtenerTiemposDeEjecucion(iSort, numeros);
+
+            // Imprime los tiempos de ejecución
             Console.WriteLine(
                 string.Format("Números del fichero leídos en {0}ms", timer.ElapsedMilliseconds));
-            //Resetea el contador
+            // Resetea el contador
             timer.Reset();
 
-            //Espacio en blanco
+            // Espacio en blanco
             Console.WriteLine();
-            imprimirResultado("BubbleSort", tiemposEjecucionBubbleSort);
-            imprimirResultado("QuickSort", tiemposEjecucionQuickSort);
-            imprimirResultado("SelectionSort", tiemposEjecucionSelectionSort);
-            imprimirResultado("InsertionSort", tiemposEjecucionInsertionSort);
+            imprimirResultado(0, bSort, tiemposEjecucionBubbleSort);
+            imprimirResultado(1, qSort, tiemposEjecucionQuickSort);
+            imprimirResultado(2, sSort, tiemposEjecucionSelectionSort);
+            imprimirResultado(3, iSort, tiemposEjecucionInsertionSort);
+
+            guardarEnArchivo(numeros);
         }
     }
 }
