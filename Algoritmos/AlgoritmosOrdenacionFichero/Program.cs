@@ -108,6 +108,12 @@ namespace AlgoritmosOrdenacionFichero
         {
             // Lee los números del fichero numbers.txt
             int[] numeros = leerNumerosDeFichero();
+            
+            // Imprime el tiempo de ejecución de leerNumerosDeFichero
+            Console.WriteLine(
+                string.Format("Números del fichero leídos en {0}ms", timer.ElapsedMilliseconds));
+            // Resetea el contador
+            timer.Reset();
 
             // Instanciar métodos de ordenación
             BubbleSort bSort = new BubbleSort();
@@ -121,14 +127,9 @@ namespace AlgoritmosOrdenacionFichero
             long[] tiemposEjecucionSelectionSort = obtenerTiemposDeEjecucion(sSort, numeros);
             long[] tiemposEjecucionInsertionSort = obtenerTiemposDeEjecucion(iSort, numeros);
 
-            // Imprime los tiempos de ejecución
-            Console.WriteLine(
-                string.Format("Números del fichero leídos en {0}ms", timer.ElapsedMilliseconds));
-            // Resetea el contador
-            timer.Reset();
-
             // Espacio en blanco
             Console.WriteLine();
+            // Imprime los tiempos de ejecución
             imprimirResultado(0, bSort, tiemposEjecucionBubbleSort);
             imprimirResultado(1, qSort, tiemposEjecucionQuickSort);
             imprimirResultado(2, sSort, tiemposEjecucionSelectionSort);
