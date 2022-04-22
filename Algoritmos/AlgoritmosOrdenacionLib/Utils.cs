@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace AlgoritmosOrdenacionLib
 {
@@ -22,6 +23,20 @@ namespace AlgoritmosOrdenacionLib
 
             // Deja espacio en blanco al final
             Console.WriteLine();
+        }
+
+        public static int[] leerNumerosDeFichero(string file, char[] splits)
+        {
+            string fichero = File.ReadAllText(file);
+            string[] numeros = fichero.Split(splits);
+
+            int[] numerosParsed = new int[numeros.Length];
+            for (int i = 0; i < numeros.Length - 1; i++)
+            {
+                numerosParsed[i] = int.Parse(numeros[i]);
+            }
+
+            return numerosParsed;
         }
     }
 }
