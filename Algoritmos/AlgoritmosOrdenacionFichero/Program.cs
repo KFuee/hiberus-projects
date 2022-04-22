@@ -79,19 +79,20 @@ namespace AlgoritmosOrdenacionFichero
             // Lee los números del fichero numbers.txt
             int[] numeros = leerNumerosDeFichero();
 
-            // Ejecuta los métodos de ordenación
+            //Ejecuta los métodos de ordenación
             long[] tiemposEjecucionBubbleSort = obtenerTiemposDeEjecucion(new BubbleSort(), numeros);
+            long[] tiemposEjecucionQuickSort = obtenerTiemposDeEjecucion(new QuickSort(), numeros);
 
-            // Imprime los tiempos de ejecución
+            //Imprime los tiempos de ejecución
             Console.WriteLine(
                 string.Format("Números del fichero leídos en {0}ms", timer.ElapsedMilliseconds));
-            // Resetea el contador
+            //Resetea el contador
             timer.Reset();
 
-            // Espacio en blanco
+            //Espacio en blanco
             Console.WriteLine();
-           
-            imprimirResultado("Bubble Sort", tiemposEjecucionBubbleSort);
+            imprimirResultado("BubbleSort", tiemposEjecucionBubbleSort);
+            imprimirResultado("QuickSort", tiemposEjecucionQuickSort);
         }
     }
 }
