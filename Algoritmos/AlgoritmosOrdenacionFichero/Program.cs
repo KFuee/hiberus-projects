@@ -16,26 +16,6 @@ namespace AlgoritmosOrdenacionFichero
 
         static Dictionary<Metodo, long> mediasEjecucion = new Dictionary<Metodo, long> ();
 
-        private static int[] leerNumerosDeFichero()
-        {
-            // Empieza a contar el tiempo de ejecución
-            timer.Start();
-
-            string fichero = File.ReadAllText("numbers.txt");
-            string[] numeros = fichero.Split(' ');
-
-            int[] numerosParsed = new int[numeros.Length];
-            for (int i = 0; i < numeros.Length - 1; i++)
-            {
-                numerosParsed[i] = int.Parse(numeros[i]);
-            }
-
-            // Para de contar el tiempo de ejecución
-            timer.Stop();
-
-            return numerosParsed;
-        }
-
         static void imprimirResultado(int pos, Metodo tipo, long[] tiempos)
         {
             Console.Write(string.Format("Números ordenados con {0} en: ", tipo.nombre));
@@ -106,9 +86,15 @@ namespace AlgoritmosOrdenacionFichero
         // TODO: Al finalizar las iteracione obtener el que ha tardado menos y utilizarlo para escribir en el txt
         static void Main(string[] args)
         {
+            // Empieza a contar el tiempo de ejecución de leerNumerosDeFichero
+            timer.Start();
+
             // Lee los números del fichero numbers.txt
-            int[] numeros = leerNumerosDeFichero();
-            
+            int[] numerosFichero = Utils.leerNumerosDeFichero("numbers.txt", new char[] { ' ', '\n' });
+
+            // Para de contar el tiempo de ejecución de leerNumerosDeFichero
+            timer.Stop();
+
             // Imprime el tiempo de ejecución de leerNumerosDeFichero
             Console.WriteLine(
                 string.Format("Números del fichero leídos en {0}ms", timer.ElapsedMilliseconds));
@@ -122,10 +108,10 @@ namespace AlgoritmosOrdenacionFichero
             InsertionSort iSort = new InsertionSort();
 
             // Ejecuta los métodos de ordenación
-            long[] tiemposEjecucionBubbleSort = obtenerTiemposDeEjecucion(bSort, numeros);
-            long[] tiemposEjecucionQuickSort = obtenerTiemposDeEjecucion(qSort, numeros);
-            long[] tiemposEjecucionSelectionSort = obtenerTiemposDeEjecucion(sSort, numeros);
-            long[] tiemposEjecucionInsertionSort = obtenerTiemposDeEjecucion(iSort, numeros);
+            long[] tiemposEjecucionBubbleSort = obtenerTiemposDeEjecucion(bSort, numerosFichero);
+            long[] tiemposEjecucionQuickSort = obtenerTiemposDeEjecucion(qSort, numerosFichero);
+            long[] tiemposEjecucionSelectionSort = obtenerTiemposDeEjecucion(sSort, numerosFichero);
+            long[] tiemposEjecucionInsertionSort = obtenerTiemposDeEjecucion(iSort, numerosFichero);
 
             // Espacio en blanco
             Console.WriteLine();
@@ -135,7 +121,7 @@ namespace AlgoritmosOrdenacionFichero
             imprimirResultado(2, sSort, tiemposEjecucionSelectionSort);
             imprimirResultado(3, iSort, tiemposEjecucionInsertionSort);
 
-            guardarEnArchivo(numeros);
+            guardarEnArchivo(numerosFichero);
         }
     }
 }
