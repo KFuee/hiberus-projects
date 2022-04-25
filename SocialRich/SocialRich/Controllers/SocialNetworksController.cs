@@ -12,7 +12,7 @@ namespace SocialRich.Controllers
 {
     public class SocialNetworksController : Controller
     {
-        private Modelo db = new Modelo();
+        private SocialContext db = new SocialContext();
 
         // GET: SocialNetworks
         public ActionResult Index()
