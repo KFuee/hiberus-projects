@@ -25,10 +25,10 @@ namespace AlgoritmosOrdenacionLib
             Console.WriteLine();
         }
 
-        public static int[] leerNumerosDeFichero(string file, char[] splits)
+        public static int[] leerNumerosDeFichero(string file, char[] splitBy)
         {
             string fichero = File.ReadAllText(file);
-            string[] numeros = fichero.Split(splits);
+            string[] numeros = fichero.Split(splitBy);
 
             int[] numerosParsed = new int[numeros.Length];
             for (int i = 0; i < numeros.Length - 1; i++)

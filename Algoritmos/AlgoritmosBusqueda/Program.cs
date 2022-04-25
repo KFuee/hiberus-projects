@@ -62,7 +62,7 @@ namespace AlgoritmosBusqueda
 
             int posicionPalabra = busquedaPalabra("perro", texto);
             Console.WriteLine(
-                string.Format("Palabra '{0}' encontrada en la posición: {1}", palabraBuscar, posicionPalabra));
+                string.Format("Palabra '{0}' encontrada en la posición {1}", palabraBuscar, posicionPalabra));
 
             // Búsqueda binaria número
             int[] numerosFichero = Utils.leerNumerosDeFichero("numbers2.txt", new char[] { '\t', '\n' });
@@ -77,7 +77,7 @@ namespace AlgoritmosBusqueda
             }
 
             Console.WriteLine(
-                string.Format("Número {0} encontrado en la posición: {1}", numeroBuscar, posicionNumero));
+                string.Format("Número '{0}' encontrado en la posición {1}", numeroBuscar, posicionNumero));
         }
     }
 }
