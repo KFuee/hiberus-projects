@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
+    SelectList favouriteSocialNetworksList = ViewBag.FavouriteSocialNetworkId;
 }
 
 <h2>Edit</h2>
@@ -10,12 +11,12 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.UserId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -34,6 +35,31 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.FavouriteSocialNetworkId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @if (favouriteSocialNetworksList.Count() > 0)
+            {
+                <div class="col-md-10">
+                    @Html.DropDownList("FavouriteSocialNetworkId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FavouriteSocialNetworkId, "", new { @class = "text-danger" })
+                </div>
+            }
+            else
+            {
+                <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="No tienes redes sociales" disabled>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SocialNetworks, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBox("SocialNetworksMultiple", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FavouriteSocialNetworkId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -48,3 +74,21 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script>
+    $("document").ready(() => {
+        const favouriteNetworkIdElement = $("#FavouriteSocialNetworkId");
+
+        $("#SocialNetworksMultiple").change((e) => {
+            const selectedNetworks = $("#SocialNetworksMultiple option:selected");
+
+            favouriteNetworkIdElement.empty();
+            $.each(selectedNetworks, (_key, item) => {
+                favouriteNetworkIdElement
+                    .append($("<option></option>")
+                        .attr("value", item.value)
+                        .text(item.textContent));
+            });
+        });
+    });
+</script>

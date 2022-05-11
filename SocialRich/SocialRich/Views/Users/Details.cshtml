@@ -4,6 +4,12 @@
     ViewBag.Title = "Details";
 }
 
+<style>
+    dd {
+        margin-bottom: 10px;
+    }
+</style>
+
 <h2>Details</h2>
 
 <div>
@@ -26,9 +32,29 @@
             @Html.DisplayFor(model => model.Surname)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.FavouriteSocialNetwork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavouriteSocialNetwork.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialNetworks)
+        </dt>
+
+        <dd>
+            <ul style="padding: 0px; list-style: none">
+                @foreach (var item in Model.SocialNetworks)
+                {
+                    <li>@item.Name</li>
+                }
+            </ul>
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

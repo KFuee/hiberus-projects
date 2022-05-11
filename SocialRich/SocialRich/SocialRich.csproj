@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AA088214-3E77-491F-BDCE-7B849393792B}</ProjectGuid>
+    <ProjectGuid>{E51E01F1-D9CE-43EB-8CA0-67C41BD8C753}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -56,8 +56,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -135,15 +133,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204251215250_InitialCreate.cs" />
-    <Compile Include="Migrations\202204251215250_InitialCreate.designer.cs">
-      <DependentUpon>202204251215250_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202205091217553_init.cs" />
+    <Compile Include="Migrations\202205091217553_init.designer.cs">
+      <DependentUpon>202205091217553_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SocialContext.cs" />
     <Compile Include="Models\SocialNetwork.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\SocialNetworksIndexData.cs" />
+    <Compile Include="ViewModels\UsersIndexData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -209,8 +209,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204251215250_InitialCreate.resx">
-      <DependentUpon>202204251215250_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205091217553_init.resx">
+      <DependentUpon>202205091217553_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -229,9 +229,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53851</DevelopmentServerPort>
+          <DevelopmentServerPort>64298</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53851/</IISUrl>
+          <IISUrl>http://localhost:64298/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

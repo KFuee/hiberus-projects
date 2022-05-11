@@ -1,10 +1,10 @@
-﻿@model IEnumerable<SocialRich.Models.SocialNetwork>
+﻿@model IEnumerable<SocialRich.ViewModels.SocialNetworksIndexData>
 
 @{
-    ViewBag.Title = "Redes sociales";
+    ViewBag.Title = "Index";
 }
 
-<h2>Listado redes sociales</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,23 +17,30 @@
         <th>
             @Html.DisplayNameFor(model => model.Url)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsersCount)
+        </th>
+        <th>Options</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            <a href=@Html.DisplayFor(modelItem => item.Url)>@Html.DisplayFor(modelItem => item.Url)</a>
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsersCount)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SocialNetworkId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SocialNetworkId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SocialNetworkId })
+            </td>
+        </tr>
+    }
 
 </table>

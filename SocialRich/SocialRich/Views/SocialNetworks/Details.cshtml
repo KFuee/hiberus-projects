@@ -6,6 +6,12 @@
 
 <h2>Details</h2>
 
+<style>
+    dd {
+        margin-bottom: 10px;
+    }
+</style>
+
 <div>
     <h4>SocialNetwork</h4>
     <hr />
@@ -26,9 +32,35 @@
             @Html.DisplayFor(model => model.Url)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Users)
+        </dt>
+
+        <dd>
+            <table class="table table-bordered col-md-10" style="width: 50%">
+                <thead>
+                    <tr>
+                        <th scope="col">UserId</th>
+                        <th scope="col">UserName</th>
+                        <th scope="col">UserSurname</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>@user.UserId</td>
+                            <td>@user.Name</td>
+                            <td>@user.Surname</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SocialNetworkId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

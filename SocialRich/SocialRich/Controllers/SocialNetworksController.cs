@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SocialRich.Models;
+using SocialRich.ViewModels;
 
 namespace SocialRich.Controllers
 {
@@ -17,7 +18,16 @@ namespace SocialRich.Controllers
         // GET: SocialNetworks
         public ActionResult Index()
         {
-            return View(db.SocialNetworks.ToList());
+            List<SocialNetworksIndexData> socialNetworksList = db.SocialNetworks.Select(socialNetwork =>
+                new SocialNetworksIndexData
+                {
+                    SocialNetworkId = socialNetwork.SocialNetworkId,
+                    Name = socialNetwork.Name,
+                    Url = socialNetwork.Url,
+                    UsersCount = socialNetwork.Users.Count()
+                }).ToList();
+
+            return View(socialNetworksList);
         }
 
         // GET: SocialNetworks/Details/5
@@ -46,7 +56,7 @@ namespace SocialRich.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Url")] SocialNetwork socialNetwork)
+        public ActionResult Create([Bind(Include = "SocialNetworkId,Name,Url")] SocialNetwork socialNetwork)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +88,7 @@ namespace SocialRich.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Url")] SocialNetwork socialNetwork)
+        public ActionResult Edit([Bind(Include = "SocialNetworkId,Name,Url")] SocialNetwork socialNetwork)
         {
             if (ModelState.IsValid)
             {
@@ -109,8 +119,16 @@ namespace SocialRich.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+            var usersWithFavouriteNetwork = db.Users.Where(user => user.FavouriteSocialNetworkId == id);
+
+            foreach (var user in usersWithFavouriteNetwork)
+            {
+                user.FavouriteSocialNetworkId = null;
+            }
+
             SocialNetwork socialNetwork = db.SocialNetworks.Find(id);
             db.SocialNetworks.Remove(socialNetwork);
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }
