@@ -1,0 +1,45 @@
+﻿@model Restaurantes.Models.RestaurantReviewsIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Valoraciones para el restaurante - @Model.Restaurant.Name</h2>
+
+<p>
+    @Html.ActionLink("Crear nueva valoración", "Create", new { id = Model.Restaurant.RestaurantId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantReview.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantReview.Body)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantReview.ReviewerName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.RestaurantReviews)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewerName)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.RestaurantReviewId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.RestaurantReviewId })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,53 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Restaurantes.Models.Restaurant>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Inicio</h2>
+
+<style>
+    #restaurantsList {
+        width: 50%;
+        margin-top: 16px;
+    }
+
+    #restaurant-item h3 {
+        margin: 0px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+</style>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="input-group">
+        <span class="input-group-btn">
+            <input type="submit" value="Buscar" class="btn btn-default" />
+        </span>
+
+        @Html.TextBox("searchTerm", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+    </div>
+}
+
+
+<div id="restaurantsList" class="panel panel-default">
+    <div class="panel-heading">Listado de restaurantes</div>
+
+    <ul class="list-group">
+        @foreach (var restaurant in Model)
+        {
+            <li class="list-group-item">
+                <div id="restaurant-item">
+                    <h3>@restaurant.Name</h3>
+                    <p>@restaurant.City, @restaurant.Country</p>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
